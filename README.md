@@ -96,3 +96,57 @@ https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd#installing-the-ch
 https://argocd-operator.readthedocs.io/en/latest/install/olm/)
 ```
 ## Implementing and Verifying:
+
+1. Installing KYVERNO using manifest file
+```
+kubectl create -f https://github.com/kyverno/kyverno/releases/download/v1.8.5/install.yaml
+```
+
+
+2. Installing ArgoCD using manifest file
+```
+kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml
+```
+
+
+3. Create a file with below for ClusterPolicy with kyverno as Pod Requests Limits
+```
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-requests-limits
+  annotations:
+    policies.kyverno.io/title: Require Limits and Requests
+    policies.kyverno.io/category: Best Practices, EKS Best Practices
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/description: >-
+      As application workloads share cluster resources, it is important to limit resources
+      requested and consumed by each Pod. It is recommended to require resource requests and
+      limits per Pod, especially for memory and CPU. If a Namespace level request or limit is specified,
+      defaults will automatically be applied to each Pod based on the LimitRange configuration.
+      This policy validates that all containers have something specified for memory and CPU
+      requests and memory limits.
+spec:
+  validationFailureAction: enforce
+  background: true
+  rules:
+  - name: validate-resources
+    match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    validate:
+      message: "CPU and memory resource requests and limits are required."
+      pattern:
+        spec:
+          containers:
+          - resources:
+              requests:
+                memory: "?*"
+                cpu: "?*"
+              limits:
+                memory: "?*"
+```			
