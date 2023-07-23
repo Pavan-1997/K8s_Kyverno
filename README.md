@@ -95,3 +95,4 @@ https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd#installing-the-ch
 ```
 https://argocd-operator.readthedocs.io/en/latest/install/olm/)
 ```
+## Verifying:
