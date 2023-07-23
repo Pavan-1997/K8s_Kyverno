@@ -166,7 +166,7 @@ kubectl logs kyverno-69f6c6485c-qwd66 -n kyverno
 
 
 6. Deploying nginx and check 
-````
+```
 kubectl create deploy nginx --image=nginx
 ```
 ```
