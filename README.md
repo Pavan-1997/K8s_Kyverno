@@ -76,7 +76,15 @@ kubectl create -f https://github.com/kyverno/kyverno/releases/download/v1.8.5/in
 
 There are three ways to install Argo CD
 
-1. `kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml`
-2. Helm Charts, Follow the [link](https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd#installing-the-chart) 
-3. Using the Argo CD Operator, Follow the [link](https://argocd-operator.readthedocs.io/en/latest/install/olm/)
-
+1. Through Kubernetes manifest yaml files
+```
+kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml`
+```
+2. Helm Charts
+```
+https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd#installing-the-chart
+```
+3. Using the Argo CD Operator
+```
+https://argocd-operator.readthedocs.io/en/latest/install/olm/)
+```
