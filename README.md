@@ -3,3 +3,10 @@
 Kyverno is a policy engine designed for Kubernetes. It can validate, mutate, and generate configurations using admission controls and background scans. Kyverno policies are Kubernetes resources and do not require learning a new language. Kyverno is designed to work nicely with tools you already use like kubectl, kustomize, and Git. 
 
 It can enforce policies, governence and compliance on your kubernetes cluster. Whether your kubernetes cluster is on AWS, Azure, GCP or on-premises
+
+We can use Kyverno in following configurations:
+
+1. Generate -> For example, Create a default network policy whenever a namespace is created.
+2. Validate -> For example, Block users from using latest tag in the deployment or pod resources.
+3. Mutate -> For example, Attach pod security policy for a pod that is created without any pod security policy configuration.
+4. Verify Images -> For example, Verify if the Images used in the pod resources are properly signed and verified images.
