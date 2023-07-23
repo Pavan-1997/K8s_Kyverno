@@ -4,6 +4,13 @@ Kyverno is a policy engine designed for Kubernetes. It can validate, mutate, and
 
 It can enforce policies, governence and compliance on your kubernetes cluster. Whether your kubernetes cluster is on AWS, Azure, GCP or on-premises
 
+![image](https://github.com/Pavan-1997/K8s_Kyverno/assets/32020205/fb6b8fa4-0958-4fa4-8647-af7078ea1d72)
+
+Policies can be defined as cluster-wide resources (using the kind ClusterPolicy) or namespaced resources (using the kind Policy.) As expected, namespaced policies will only apply to resources within the namespace in which they are defined while cluster-wide policies are applied to matching resources across all namespaces. Otherwise, there is no difference between the two types. Additional policy types include PolicyException and (Cluster)CleanupPolicy which are separate resources.
+
+![image](https://github.com/Pavan-1997/K8s_Kyverno/assets/32020205/a0a8ad7a-5cdf-4a7d-bf55-2d401194b4c8)
+
+
 We can use Kyverno in following configurations:
 
 1. Generate -> For example, Create a default network policy whenever a namespace is created.
