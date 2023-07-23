@@ -109,7 +109,7 @@ kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manif
 ```
 
 
-3. Create a below YAML file with below for ClusterPolicy with kyverno as Pod Requests Limits using `vi <filename>.yaml`
+3. Create a below YAML file with below for ClusterPolicy with kyverno as Pod Requests Limits using `vi pod-requests-limits.yml`
 ```
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
