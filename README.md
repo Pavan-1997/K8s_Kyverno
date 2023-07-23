@@ -190,6 +190,15 @@ kubectl get clusterpolicy
 ```
 kubectl delete clusterpolicy <clusterpolicy-name>
 ```
+Checking the Kyverno logs after the policy delete using `kubectl logs kyverno-69f6c6485c-qwd66 -n kyverno`
+
+![CP_DELETE](https://github.com/Pavan-1997/K8s_Kyverno/assets/32020205/4dc586e3-f509-4105-b5db-038bb127f44f)
 
 
-8. Install Nginx again which should install 
+8. Install Nginx again which should install
+
+   Follow again the steps in Step 6.
+
+Now you can see the Nginx Pod is created without any policy 
+![NGINX_AFTER](https://github.com/Pavan-1997/K8s_Kyverno/assets/32020205/fdaba1e5-3e68-4079-8757-7236f8ad2a4f)
+
