@@ -13,20 +13,20 @@ We can use Kyverno in following configurations:
 
 ---
 
-# Practical Implementation : 
+# Practical Implementation: 
 
 A DevOps Engineer will write the required Kyverno Policy custom resource and commits it to a Git repository. Argo CD which is pre configured with auto-sync to watch for resources in the git repo, deploys the Kyverno Policies on to the Kubernetes cluster.
 
 ![image](https://github.com/Pavan-1997/K8s_Kyverno/assets/32020205/cbe59150-4be2-4896-9a25-a41d3c750a4c)
 
-## Installation
+## Installation:
 
 To setup this project you need to install Argo CD controller and Kyverno controller, Assuming you have Kubernetes installed.
 
 Installation of both Kyverno and Argo CD are pretty straight forward as both of them support Helm charts and also provide a consolidated 
 installation yaml files. 
 
-### Kyverno
+### Kyverno - 
 
 There are two easy ways to install kyverno:
 
@@ -72,7 +72,7 @@ helm install kyverno kyverno/kyverno -n kyverno --create-namespace --version 2.6
 kubectl create -f https://github.com/kyverno/kyverno/releases/download/v1.8.5/install.yaml
 ```
 
-### Argo CD
+### Argo CD -
 
 There are three ways to install Argo CD
 
