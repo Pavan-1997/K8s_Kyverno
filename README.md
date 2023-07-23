@@ -152,7 +152,7 @@ spec:
 ```			
 
 
-4. Now there will a Kyverno Pod that is running in Kyverno namespace (saperate namespace for easy management)
+4. Now there will a Kyverno Pod that is running in Kyverno namespace (we have saperate namespace for easy management)
 ```
 kubectl get pods -A | grep kyverno
 ```
@@ -162,7 +162,7 @@ kubectl get pods -A | grep kyverno
 ```
 kubectl logs kyverno-69f6c6485c-qwd66 -n kyverno 
 ```
-* There will be a Dynamic Kubernetes AC that reads the policy acc to definition it creates any pods or locks the creattion
+`There will be a Dynamic Kubernetes Admission Controller that reads the policy according to definition that we create depending on which later it creates any pods or locks the creation`
 
 
 6. Deploying nginx and check 
@@ -175,7 +175,7 @@ kubectl get pods | grep nginx
 ```
 kubectl logs kyverno-69f6c6485c-qwd66 -n kyverno 
 ```
-** kubectl edit ClusterPolicy require-requests-limits (Change audit to enforce) 
+`kubectl edit ClusterPolicy require-requests-limits (Change audit to enforce)`
 
 
 7. Remove the ClusterPolicy 
