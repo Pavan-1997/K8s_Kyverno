@@ -141,7 +141,7 @@ kubectl get pods | grep nginx
 kubectl logs kyverno-69f6c6485c-qwd66 -n kyverno 
 ```
 
-If validationFailureAction is set to Audit then change it to Enforce
+If validationFailureAction is set to `audit` then change it to `enforce`
 
 `kubectl edit ClusterPolicy require-requests-limits (Change audit to enforce)`
 
