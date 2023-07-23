@@ -150,3 +150,41 @@ spec:
               limits:
                 memory: "?*"
 ```			
+
+
+4. Now there will a Kyverno Pod that is running in Kyverno namespace (saperate namespace for easy management)
+```
+kubectl get pods -A | grep kyverno
+```
+
+
+5. Check for the logs 
+```
+kubectl logs kyverno-69f6c6485c-qwd66 -n kyverno 
+```
+* There will be a Dynamic Kubernetes AC that reads the policy acc to definition it creates any pods or locks the creattion
+
+
+6. Deploying nginx and check 
+````
+kubectl create deploy nginx --image=nginx
+```
+```
+kubectl get pods | grep nginx
+```
+```
+kubectl logs kyverno-69f6c6485c-qwd66 -n kyverno 
+```
+** kubectl edit ClusterPolicy require-requests-limits (Change audit to enforce) 
+
+
+7. Remove the ClusterPolicy 
+```
+kubectl get clusterpolicy
+```
+```
+kubectl delete clusterpolicy <clusterpolicy-name>
+```
+
+
+8. Install Nginx again which should install 
