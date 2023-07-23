@@ -10,3 +10,5 @@ We can use Kyverno in following configurations:
 2. Validate -> For example, Block users from using latest tag in the deployment or pod resources.
 3. Mutate -> For example, Attach pod security policy for a pod that is created without any pod security policy configuration.
 4. Verify Images -> For example, Verify if the Images used in the pod resources are properly signed and verified images.
+
+Practical Implementation : A DevOps Engineer will write the required Kyverno Policy custom resource and commits it to a Git repository. Argo CD which is pre configured with auto-sync to watch for resources in the git repo, deploys the Kyverno Policies on to the Kubernetes cluster.
