@@ -156,6 +156,7 @@ spec:
 ```
 kubectl get pods -A | grep kyverno
 ```
+![image](https://github.com/Pavan-1997/K8s_Kyverno/assets/32020205/eabde41c-0c20-458b-a485-bb5e2dc19728)
 
 
 5. Check for the logs 
@@ -169,6 +170,9 @@ kubectl logs kyverno-69f6c6485c-qwd66 -n kyverno
 ```
 kubectl create deploy nginx --image=nginx
 ```
+Below image shows that the POD will not be created due to the policy we applied with Kyverno
+![NGINX_AFTER](https://github.com/Pavan-1997/K8s_Kyverno/assets/32020205/269408eb-cef2-4b4f-9733-7d498d23deda)
+
 ```
 kubectl get pods | grep nginx
 ```
