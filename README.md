@@ -109,47 +109,7 @@ kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manif
 ```
 
 
-3. Create a below YAML file with below for ClusterPolicy with kyverno as Pod Requests Limits using `vi pod-requests-limits.yml`
-```
-apiVersion: kyverno.io/v1
-kind: ClusterPolicy
-metadata:
-  name: require-requests-limits
-  annotations:
-    policies.kyverno.io/title: Require Limits and Requests
-    policies.kyverno.io/category: Best Practices, EKS Best Practices
-    policies.kyverno.io/severity: medium
-    policies.kyverno.io/subject: Pod
-    policies.kyverno.io/minversion: 1.6.0
-    policies.kyverno.io/description: >-
-      As application workloads share cluster resources, it is important to limit resources
-      requested and consumed by each Pod. It is recommended to require resource requests and
-      limits per Pod, especially for memory and CPU. If a Namespace level request or limit is specified,
-      defaults will automatically be applied to each Pod based on the LimitRange configuration.
-      This policy validates that all containers have something specified for memory and CPU
-      requests and memory limits.
-spec:
-  validationFailureAction: enforce
-  background: true
-  rules:
-  - name: validate-resources
-    match:
-      any:
-      - resources:
-          kinds:
-          - Pod
-    validate:
-      message: "CPU and memory resource requests and limits are required."
-      pattern:
-        spec:
-          containers:
-          - resources:
-              requests:
-                memory: "?*"
-                cpu: "?*"
-              limits:
-                memory: "?*"
-```			
+3. Use the YAML file `pod-requests-limits.yml` in the repo for ClusterPolicy with kyverno as Pod Requests Limits
 
 
 4. Now there will a Kyverno Pod that is running in Kyverno namespace (we have saperate namespace for easy management)
